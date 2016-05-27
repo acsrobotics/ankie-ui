@@ -1,0 +1,22 @@
+{
+  "name": "plproto5",
+  "version": "1.0.0",
+  "description": "The 5th prototypes for Project L",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ./src/app.js",
+    "migrate": "node ./src/db/Migrate.js",
+    "dbTest": "node ./src/db/DbTest.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Azhng",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-rebuild": "^1.1.4",
+    "gulp": "^3.9.0",
+    "gulp-electron": "0.0.9"
+  },
+  "dependencies": {
+    "node-pre-gyp": "^0.6.28"
+  }
+}

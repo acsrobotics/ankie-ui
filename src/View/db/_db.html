@@ -1,0 +1,7 @@
+<div id="app" ng-app="DbView" ng-controller="DbController">
+	<h1>Search Patient</h1>
+	<input type='text' ng-keypress="loadDataBasedOnQuery()" class='win-textbox' ng-model="searchquery" placeholder="Search Patient by Name" /> <button ng-click="loadDataBasedOnQuery()"  class="win-button win-button-primary" value="secondary button">Search</button>
+	<div ng-repeat="patient in patients">
+		<a href="#">{{patient.patientName}}</a>
+	</div>
+</div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/angular-route/angular-route.js"></script>
+    <link href="../../node_modules/winjs/css/ui-light.css" rel="stylesheet"/>
+    <link href="./main.css" rel="stylesheet"/>
+    <link href="../../common/app.css" rel="stylesheet"/>
+    <script src="../../node_modules/winjs/js/base.js"></script>
+    <script src="../../node_modules/winjs/js/ui.js"></script>
+    <script src="../../node_modules/angular-winjs/js/angular-winjs.js"></script>
+    <script src="../../Model/storage.js"></script>
+    <script src="../db/_db.controller.js"></script>
+    <script src="../control/_control.controller.js"></script>
+    <script src="./main.controller.js"></script>
+</head>
+<body>
+
+    <div id="app" ng-app="View" ng-controller="MainController">
+
+
+        <win-split-view id="splitView">
+
+            <!-- Pane Area -->
+            <win-split-view-pane>
+
+                <div class="header">
+                    <win-split-view-pane-toggle class="win-splitviewpanetoggle" split-view="splitViewElement">
+                    </win-split-view-pane-toggle>
+                    <div class="title">Menu</div>
+                </div>
+
+                <div class="nav-commands">
+                    <a href="#db">
+                        <!--A search bar the finds the patient data!-->
+                        <win-split-view-command label="'Find Patient'" icon="'zoom'"></win-split-view-command>
+                    </a>
+                    <a href="#control">
+                        <!--Controls the machine!-->
+                        <win-split-view-command label="'Control Panel'" icon="'repair'"></win-split-view-command>
+                    </a>
+                </div>
+
+            </win-split-view-pane>
+
+            <!-- Content Area -->
+            <win-split-view-content background-color="#ffffff">
+                <div class="contenttext">
+                    <h2 class="win-h2">
+                        <div ng-view></div>
+                    </h2>
+                </div>
+            </win-split-view-content>
+
+        </win-split-view>
+    </div>
+</body>
+</html>

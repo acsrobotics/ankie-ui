@@ -1,0 +1,27 @@
+{
+  "name": "proj-A",
+  "description": "source for proj-A",
+  "main": "app.js",
+  "authors": [
+    "Azhng"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies":{
+      "angular": "~1.4.5",
+      "material-design-lite": "~1.0.4",
+      "angular-route": "~1.4.5"
+  }
+}
