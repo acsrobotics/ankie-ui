@@ -14,7 +14,9 @@
   "dependencies": {
     "angular-winjs": "^4.3.0",
     "faker": "*",
+    "material-design-lite": "^1.1.3",
     "nedb": "^1.8.0",
+    "node-ipc": "^7.0.0",
     "nodeunit": "*",
     "q": "^1.4.1",
     "sqlite3": "*",

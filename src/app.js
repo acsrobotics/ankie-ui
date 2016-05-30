@@ -20,9 +20,7 @@ function createMainWindow(){
         height: 720
     });
     
-    //mainWindow.loadURL('https://archerjz.herokuapp.com');
     mainWindow.loadURL('file://' + __dirname + '/View/main/main.html');
-    //mainWindow.loadURL('file://' + __dirname + '/windows/demo/demo.html');
     mainWindow.webContents.openDevTools();
     
     mainWindow.on('closed', function(){

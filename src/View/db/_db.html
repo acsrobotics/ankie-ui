@@ -1,7 +1,36 @@
 <div id="app" ng-app="DbView" ng-controller="DbController">
 	<h1>Search Patient</h1>
+	
+	<!--level 1 navigation for patient-->
+	
 	<input type='text' ng-keypress="loadDataBasedOnQuery()" class='win-textbox' ng-model="searchquery" placeholder="Search Patient by Name" /> <button ng-click="loadDataBasedOnQuery()"  class="win-button win-button-primary" value="secondary button">Search</button>
 	<div ng-repeat="patient in patients">
-		<a href="#">{{patient.patientName}}</a>
+		<div class="mdl-list__item">
+			<div class="mdl-card__actions mdl-card--border">
+				<a style="color:white" retrieve-treatments="{{patient.patientName}}" class="mdl-button mdl-button-colored mdl-js-button mdl-js-ripple-effect">
+					{{patient.patientName}}
+				</a>	
+			</div>
+		</div>
 	</div>
+	
+	<!--level 2 navigation for treatment history-->
+	<div ng-if="treatments.length !== 0">
+		<div>
+			<h3>
+				Treatment Date:
+			</h3>
+		</div>
+		<div ng-repeat="treatment in treatments">
+			<div class="mdl-list__item">
+				<div class="mdl-card__actions mdl-card--border">
+					<a style="color:white" class="mdl-button mdl-button-colored mdl-js-button mdl-js-ripple-effect">
+						{{treatment.date}}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
 </div>

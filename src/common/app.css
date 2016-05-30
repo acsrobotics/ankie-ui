@@ -13,3 +13,36 @@ a:hover {
 a:active {
     text-decoration: none;
 }
+
+.card-event-wide.mdl-card {
+  width: 300px;
+  height: 100px;
+  background: #3E4EB8;
+}
+.card-event-wide > .mdl-card__actions {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.card-event-wide > .mdl-card__title {
+  height: 176px;
+  align-items: flex-start;
+}
+.card-event-wide > .mdl-card__title > h4 {
+  margin-top: 0;
+}
+.card-event-wide > .mdl-card__actions {
+  display: flex;
+  box-sizing:border-box;
+  align-items: center;
+}
+.card-event-wide > .mdl-card__actions > .material-icons {
+  padding-right: 10px;
+}
+.card-event-wide > .mdl-card__title,
+.card-event-wide > .mdl-card__actions,
+.card-event-wide > .mdl-card__actions > .mdl-button {
+  color: #fff;
+}
+
+.list-item {
+  width: 300px;
+}
