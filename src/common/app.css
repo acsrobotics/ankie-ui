@@ -46,3 +46,7 @@ a:active {
 .list-item {
   width: 300px;
 }
+
+html {
+  overflow: auto;
+}

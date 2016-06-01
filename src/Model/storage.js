@@ -10,6 +10,11 @@ angular
 		this.db = new Datastore({filename: "./proja.db", autoload: true});
 		this.treatments = [];
 		
+		this.patientContext;
+		
+		this.loadPatientContext = (p) => {
+			this.patient = p;
+		}
 		
 		// return all data entries that contains the substring 
 		this.findContainString = function(query){
@@ -26,9 +31,6 @@ angular
 		this.retrieveTreatmentHistory = function(name){
 			
 			var d = $q.defer();
-			
-			console.log(name);
-			
 			this.db.find({patientName: name}, function(err, docs){
 				if(err){
 					d.reject(err);
@@ -49,11 +51,23 @@ angular
 				
 				var name = attrs.retrieveTreatments;
 				
+				
+				
 				Storage
 					.retrieveTreatmentHistory(name)
 					.then((storage) => {
 						ipcRenderer.emit("treatment-recieved", storage.treatments);
 					});
+			})
+		}
+	}])
+	.directive("treatmentLoaded", ["Storage", (Storage) => {
+		return ($scope, element, attrs) => {
+			element.bind("click", (evt) => {
+				evt.preventDefault();
+				
+				
+				
 			})
 		}
 	}])

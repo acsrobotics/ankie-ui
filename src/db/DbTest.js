@@ -9,7 +9,7 @@ for(var i=1; i<=50; i++){
 	dummy.creationDate = faker.date.past();
 	dummy.lastUpdateDate = faker.date.recent();
     dummy.treatments = [];
-    for(var j=1; j<=5; j++){
+    for(var j=1; j<=10; j++){
         var treatment = new Object();
         treatment.treatmentId = j;
         treatment.date = faker.date.past();

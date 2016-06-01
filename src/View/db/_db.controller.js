@@ -9,10 +9,10 @@ angular
 	
 	$scope.loadDataBasedOnQuery = function(){
 		$scope.patients = [];
+		$scope.treatments = [];
 		if(!$scope.searchquery !== ""){
 			Storage.findContainString($scope.searchquery).then(function(result){
 				$scope.patients = result;
-				// console.log($scope.patients);
 				$scope.$apply();
 			})
 		}
@@ -22,6 +22,7 @@ angular
 	ipc.on("treatment-recieved", (treatments) => {
 		$scope.patients = [];
 		
+		// formating of the date string 
 		for(var i in treatments){
 			var str = new Date(treatments[i].date).toISOString().replace(/T/, " ").replace(/\..+/,"");
 			treatments[i].date = str;

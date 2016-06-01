@@ -1,5 +1,9 @@
+var ipc = require("electron").ipcRenderer;
+
 angular
-.module("ControlView", [])
-.controller("ControlController", ["$scope", function ($scope) {
-	$scope.foo = "QQQQ";
+.module("ControlView", ["Data"])
+.controller("ControlController", ["$scope", "Storage", function ($scope, Storage) {
+	$scope.patientContext = null;
+	$scope.treatmentContext = null;
+		
 }]);

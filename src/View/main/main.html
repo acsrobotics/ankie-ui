@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
     <link href="../../node_modules/material-design-lite/material.css" rel="stylesheet"/>
+    
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <link href="../../common/roundslider.css" rel="stylesheet" />
+    <script src="../../common/roundslider.js"></script>
+    
+    
     <script src="../../node_modules/material-design-lite/material.js"></script>
     <script src="../../bower_components/angular/angular.js"></script>
     <script src="../../bower_components/angular-route/angular-route.js"></script>
@@ -15,9 +23,11 @@
     <script src="../db/_db.controller.js"></script>
     <script src="../control/_control.controller.js"></script>
     <script src="./main.controller.js"></script>
+    
+    
+    <script>if (window.module) module = window.module;</script>
 </head>
 <body>
-
     <div id="app" ng-app="View" ng-controller="MainController">
 
         <win-split-view id="splitView">
