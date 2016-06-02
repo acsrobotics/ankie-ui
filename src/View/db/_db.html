@@ -29,7 +29,7 @@
 			<div ng-repeat="treatment in treatments">
 				<div class="mdl-list__item">
 					<div class="mdl-card__actions mdl-card--border">
-						<a style="color:white" class="mdl-button mdl-button-colored mdl-js-button mdl-js-ripple-effect">
+						<a ng-click="renavigate()" treatment-loaded="{{treatment.treatmentId}}" style="color:white" class="mdl-button mdl-button-colored mdl-js-button mdl-js-ripple-effect">
 							{{treatment.date}}
 						</a>
 					</div>
@@ -37,6 +37,7 @@
 			</div>
 		</div>
 	</div>
+
 	
 	
 </div>

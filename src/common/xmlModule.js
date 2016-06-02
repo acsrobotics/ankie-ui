@@ -1,7 +1,6 @@
 var xml2js = require('xml2js');
 var parser = new xml2js.Parser();
 var fs     = require('fs');
-var dbUtil = require('../db/DbUtil');
 var $q     = require('q');
 module.exports = {
 

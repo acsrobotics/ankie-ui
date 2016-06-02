@@ -2,7 +2,7 @@ var ipc = require("electron").ipcRenderer;
 
 angular
 .module("DbView", ["Data"])
-.controller("DbController", ["$scope", "Storage", function ($scope, Storage) {
+.controller("DbController", ["$scope", "Storage", "$location", function ($scope, Storage, $location) {
 	$scope.searchquery = "";
 	$scope.patients = [];
 	$scope.treatments = [];
@@ -16,6 +16,10 @@ angular
 				$scope.$apply();
 			})
 		}
+	}
+	
+	$scope.renavigate = () => {
+		$location.path("control");
 	}
 	
 	// update view model when storage finish loading 

@@ -10,10 +10,10 @@ angular
 		this.db = new Datastore({filename: "./proja.db", autoload: true});
 		this.treatments = [];
 		
-		this.patientContext;
+		this.patientContext = null;
 		
 		this.loadPatientContext = (p) => {
-			this.patient = p;
+			this.patientContext = p;
 		}
 		
 		// return all data entries that contains the substring 
@@ -26,6 +26,20 @@ angular
 			
 			return d.promise;
 		};
+		
+		// load treatment data from index and patientContext
+		this.loadTreatmentData = (index) => {
+			var d = $q.defer();
+			
+			if(this.patientContext == null){
+				d.reject();
+			}else{
+				// console.log(this.patientContext[0].treatments[index]);
+				d.resolve(this.patientContext[0].treatments[index]);
+			}
+			
+			return d.promise;
+		}
 		
 		// retrieve the treatment history given the name of the patient 
 		this.retrieveTreatmentHistory = function(name){
@@ -50,23 +64,34 @@ angular
 				evt.preventDefault();
 				
 				var name = attrs.retrieveTreatments;
-				
-				
-				
+								
 				Storage
 					.retrieveTreatmentHistory(name)
 					.then((storage) => {
+						// i know this is ugly ..
+						// i forget to design this part in the beginning 
+						// patientContext is used to find the 
+						Storage.findContainString(name).then((p) =>{
+							Storage.loadPatientContext(p);
+						})
+						
 						ipcRenderer.emit("treatment-recieved", storage.treatments);
 					});
 			})
 		}
 	}])
-	.directive("treatmentLoaded", ["Storage", (Storage) => {
+	.directive("treatmentLoaded", ["Storage",  (Storage) => {
 		return ($scope, element, attrs) => {
 			element.bind("click", (evt) => {
 				evt.preventDefault();
 				
+				var index = attrs.treatmentLoaded;
 				
+				Storage.loadTreatmentData(index)
+					.then((treatment) => {
+						ipcRenderer.emit("treatment-loaded", treatment);
+						// console.log(treatment);
+					})
 				
 			})
 		}
