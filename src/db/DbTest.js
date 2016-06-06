@@ -15,7 +15,7 @@ for(var i=1; i<=50; i++){
         treatment.date = faker.date.past();
         treatment.time = Math.abs(Math.random() * 100);
         treatment.voltage = Math.random();
-        treatment.rpm = Math.abs(Math.random() * 1000);
+        treatment.rpm = Math.floor(Math.abs(Math.random() * 1000));
         dummy.treatments.push(treatment);
     }
     db.insert(dummy, function(err, newDoc){

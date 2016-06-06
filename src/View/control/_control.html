@@ -1,7 +1,19 @@
 <div id="app" ng-app="ControlView" ng-controller="ControlController">
 	<h1>Control Page</h1>
-	<p>{{treatmentContext}}</p>
-	<p>sfsdf</p>
 	<!--So this is how it works -->
-	<round-slider value="sliderModel" radius="100"></round-slider>
+	<!--<p>{{treatmentContext.rpm}}</p>-->
+	
+	<circular-slider
+		class="my-slider"
+		touch="true"
+		animate='true'
+		shape="Circle"
+		on-slide='onSlide'
+		on-slide-end='onSlideEnd'
+		min=0
+		max=1000
+		value="treatmentContext.rpm">
+		{{value}}
+	</circular-slider>	
+	
 </div>
